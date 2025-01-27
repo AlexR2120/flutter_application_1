@@ -21,6 +21,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Obtiene una instancia del ThemeProvider
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return MaterialApp(
@@ -45,6 +46,7 @@ class _AppWithBottomNavState extends State<AppWithBottomNav> {
     FavoritesScreen(),
   ];
 
+  // Maneja la navegación entre pestañas
   void _onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
@@ -53,6 +55,7 @@ class _AppWithBottomNavState extends State<AppWithBottomNav> {
 
   @override
   Widget build(BuildContext context) {
+    // Obtiene una instancia del ThemeProvider
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return Scaffold(
