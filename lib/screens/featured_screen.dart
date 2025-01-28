@@ -33,7 +33,7 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
       final randomIndex = Random().nextInt(totalCharacters);
 
       // Paso 3: Calcular la página y posición en esa página
-      final pageSize = 10; 
+      final pageSize = 10;
       final page = (randomIndex ~/ pageSize) + 1;
       final indexInPage = randomIndex % pageSize;
 
@@ -59,32 +59,58 @@ class _FeaturedScreenState extends State<FeaturedScreen> {
       appBar: AppBar(
         title: const Text('Personaje Destacado'),
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : _randomCharacter != null
-              ? Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        _randomCharacter!.name.isNotEmpty
-                            ? _randomCharacter!.name
-                            : 'Sin Nombre',
-                        style: const TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'Género: ${_randomCharacter!.gender.isNotEmpty ? _randomCharacter!.gender : 'Desconocido'}',
-                      ),
-                      const SizedBox(height: 10),
-                      Text(
-                        'Cultura: ${_randomCharacter!.culture.isNotEmpty ? _randomCharacter!.culture : 'Desconocida'}',
-                      ),
-                    ],
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/backgroundGT.jpg'),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: _isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : _randomCharacter != null
+                ? Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          _randomCharacter!.name.isNotEmpty
+                              ? _randomCharacter!.name
+                              : 'Sin Nombre',
+                          style: const TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          'Género: ${_randomCharacter!.gender.isNotEmpty ? _randomCharacter!.gender : 'Desconocido'}',
+                          style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                        ),
+                        const SizedBox(height: 10),
+                        Text(
+                          'Cultura: ${_randomCharacter!.culture.isNotEmpty ? _randomCharacter!.culture : 'Desconocida'}',
+                          style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                        ),
+                        const SizedBox(height: 20),
+                        ElevatedButton(
+                          onPressed: _fetchRandomCharacter,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color.fromARGB(255, 211, 211, 228),
+                          ),
+                          child: const Text('Cambiar personaje'),
+                        ),
+                      ],
+                    ),
+                  )
+                : const Center(
+                    child: Text(
+                      'No se pudo cargar un personaje destacado.',
+                      style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                    ),
                   ),
-                )
-              : const Center(child: Text('No se pudo cargar un personaje destacado.')),
+      ),
     );
   }
 }
