@@ -63,7 +63,7 @@ class _CharacterListScreenState extends State<CharacterListScreen> {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: const Text('Listado de Personajes'),
-          backgroundColor: Colors.black.withOpacity(0.7),
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.7),
         ),
         body: _isLoading
             ? const Center(child: CircularProgressIndicator())
