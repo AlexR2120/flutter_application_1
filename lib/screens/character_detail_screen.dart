@@ -16,10 +16,10 @@ class CharacterDetailScreen extends StatelessWidget {
 
     return BackgroundContainer(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
         appBar: AppBar(
           title: Text(character.name.isNotEmpty ? character.name : 'Sin Nombre'),
-          backgroundColor: Colors.black.withOpacity(0.7),
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.7),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),

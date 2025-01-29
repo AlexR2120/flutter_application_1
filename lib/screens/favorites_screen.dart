@@ -14,7 +14,7 @@ class FavoritesScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: const Text('Favoritos'),
-          backgroundColor: Colors.black.withOpacity(0.7),
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.7),
         ),
         body: favoritesProvider.favorites.isEmpty
             ? const Center(
